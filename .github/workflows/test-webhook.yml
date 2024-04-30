@@ -17,6 +17,6 @@ jobs:
           webhook_url: ${{ secrets.WEBHOOK_URL }}
           webhook_auth_type: "header"
           verbose: true
-          webhook_auth: "CF-Access-Client-Secret:123"
-          curl_opts: '-H "CF-Access-Client-Id:123"'
+          webhook_auth: "CF-Access-Client-Secret:777"
+          curl_opts: '-H CF-Access-Client-Id: 666'
 
