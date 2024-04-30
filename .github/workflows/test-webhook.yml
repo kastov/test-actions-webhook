@@ -14,9 +14,7 @@ jobs:
       - name: Invoke deployment hook
         uses: distributhor/workflow-webhook@v3
         with:
+          curl_opts: "-H 'X-Bear: x666' 'CF-Access-Client-Secret: x777'"
           webhook_url: ${{ secrets.WEBHOOK_URL }}
-          webhook_auth_type: "header"
           verbose: true
-          webhook_auth: "CF-Access-Client-Secret:777"
-          curl_opts: "-H 'X-Bear: 666'"
 
