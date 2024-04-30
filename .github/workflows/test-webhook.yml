@@ -11,11 +11,11 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
-      - name: Webhook
-        uses: joelwmale/webhook-action@master
+      - name: Webhook Action
+        uses: joelwmale/webhook-action@2.4.1
+
         with:
           url: ${{ secrets.WEBHOOK_URL }}
-          headers: '{"CF-Access-Client-Secret": "CF-Access-Client-Secret:777", "CF-Access-Client-Id": "666"}'
-          body: '{"event": "deployment", "repository": "joelwmale/webhook-action"}'
-          github_event_payload: true
+          headers: '{"CF-Access-Client-Secret": "${{ secrets.CF_CLIENT_SECRET }}", "CF-Access-Client-Id": "${{ secrets.CF_CLIENT_ID }}"}'
+          github_event_payload: false
 
