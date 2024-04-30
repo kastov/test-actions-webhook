@@ -11,10 +11,11 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
 
-      - name: Invoke deployment hook
-        uses: distributhor/workflow-webhook@v3
+      - name: Webhook
+        uses: joelwmale/webhook-action@master
         with:
-          curl_opts: '-H "X-Beverage: Beer"'
-          webhook_url: ${{ secrets.WEBHOOK_URL }}
-          verbose: true
+          url: ${{ secrets.WEBHOOK_URL }}
+          headers: '{"CF-Access-Client-Secret": "CF-Access-Client-Secret:777", "CF-Access-Client-Id": "666"}'
+          body: '{"event": "deployment", "repository": "joelwmale/webhook-action"}'
+          github_event_payload: true
 
